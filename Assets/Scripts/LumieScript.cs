@@ -1,20 +1,25 @@
 using UnityEngine;
 
+// Character logic
+
 public class LumieScript : MonoBehaviour
 {
+    // Physics and state
     public Rigidbody2D lumieRigidbody;
     public float flapStrength;
-    public LogicScript logic;
     public bool lumieAlive = true;
+
+    // imported logic script
+    public LogicScript logic;
+
+    // SFX
     public AudioSource flapSFX;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>(); // uses tags
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) == true && lumieAlive == true)

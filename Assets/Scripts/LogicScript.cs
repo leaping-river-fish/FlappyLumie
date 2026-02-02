@@ -1,16 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI; // ADD FOR UI 
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement; // Tools to access scenes
+
+// MAIN GAME LOGIC
 
 public class LogicScript : MonoBehaviour
 {
+
+    // UI
     public int playerScore;
     public Text scoreText;
     public Text highscoreText; 
+
+    // alternate screen
     public GameObject gameOverScreen;
+
+    // imported script
     public LumieScript lumie;
+
+    // SFX
     public AudioSource dingSFX;
     public AudioSource gameOverSFX;
+
+    // check state
     private bool gameOverTriggered = false;
 
     void Start()
@@ -22,6 +34,8 @@ public class LogicScript : MonoBehaviour
     }
 
     [ContextMenu("Increase Score")]
+
+    // Logic to increase score
     public void AddScore(int scoreToAdd)
     {
         if (lumie.lumieAlive == true)
@@ -67,7 +81,7 @@ public class LogicScript : MonoBehaviour
 
     public void Quit()
     {
-        Debug.Log("Quit button pressed (only works in build)");
+        Debug.Log("Quit button pressed");
         Application.Quit();
     }
 
